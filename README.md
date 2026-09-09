@@ -4,7 +4,7 @@ A responsive Next.js App Router website for Equipt: intentional conversations, l
 
 ## Stack
 
-Next.js 16, TypeScript, Tailwind CSS 4, shadcn/ui (Base UI), Framer Motion, Lucide icons. The requested Next.js runtime replaces the scaffold's default Vinext build scripts. The superseded Vinext/Cloudflare runtime was removed; Sites serves the static export.
+Next.js 16, TypeScript, Tailwind CSS 4, shadcn/ui (Base UI), Framer Motion, Lucide icons. The requested Next.js runtime replaces the scaffold's default Vinext build scripts. The superseded Vinext/Cloudflare runtime was removed; GitHub Pages serves the static export.
 
 ## Development
 
@@ -23,7 +23,7 @@ CI runs the build and export checks on pushes and pull requests.
 - `lib/legal.ts`: draft legal sections
 - `app/globals.css`: design tokens and responsive styles
 - `public/`: icons
-- `.openai/hosting.json`: Sites project and static export settings
+- `DNS-SETUP.md`: GitHub Pages setup and GoDaddy records
 
 ## Before launch
 
@@ -48,4 +48,4 @@ Every page has a title, description, canonical URL, Open Graph and Twitter summa
 
 ## Hosting
 
-Sites hosts the validated static export. Source is also kept in the private GitHub repository. GitHub CI checks changes but does not automatically publish to Sites. Publish a new validated Sites version after source updates.
+GitHub Pages hosts the static export. GitHub Actions builds and checks pull requests, and automatically publishes pushes to main. Set the custom domain to www.equipt.church in repository Settings → Pages. See DNS-SETUP.md for the exact GoDaddy records. Contact forms use email composition and need no server.
