@@ -307,39 +307,6 @@ export function AnalyticsPreview() {
     </div>
   );
 }
-export function PricingCard({
-  name,
-  description,
-  items,
-  featured = false,
-}: {
-  name: string;
-  description: string;
-  items: string[];
-  featured?: boolean;
-}) {
-  return (
-    <Reveal className={'pricing-card ' + (featured ? 'featured' : '')}>
-      <div className="plan-top">
-        <h2>{name}</h2>
-        {featured && <span>For your community</span>}
-      </div>
-      <p>{description}</p>
-      <div className="plan-price">
-        Coming soon<span>Pricing to be announced</span>
-      </div>
-      <ul>
-        {items.map((item) => (
-          <li key={item}>
-            <Check size={17} aria-hidden="true" />
-            {item}
-          </li>
-        ))}
-      </ul>
-      <SecondaryButton href="/contact">Ask about {name}</SecondaryButton>
-    </Reveal>
-  );
-}
 export function TestimonialCard() {
   return (
     <div className="testimonial-placeholder">

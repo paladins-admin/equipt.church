@@ -21,7 +21,6 @@ import {
   FeatureGrid,
   SectionHeading,
   CTASection,
-  PricingCard,
   AnalyticsPreview,
   PrimaryButton,
   SecondaryButton,
@@ -232,52 +231,6 @@ function About() {
       </section>
       <CTASection />
     </>
-  );
-}
-function Pricing() {
-  return (
-    <section className="wrap pricing-section">
-      <div className="pricing-grid">
-        <PricingCard
-          name="Starter"
-          description="For a person ready to begin walking alongside someone."
-          items={[
-            'Guided conversations',
-            'Personal progress and notes',
-            'Prayer reminders',
-          ]}
-        />
-        <PricingCard
-          name="Church"
-          description="For a community building a shared discipleship rhythm."
-          featured
-          items={[
-            'A shared discipleship pathway',
-            'Church-level progress insights',
-            'Leadership dashboard',
-          ]}
-        />
-        <PricingCard
-          name="Enterprise"
-          description="For larger churches, networks, and wider communities."
-          items={[
-            'A conversation about your needs',
-            'Reporting requirements review',
-            'Rollout and support planning',
-          ]}
-        />
-      </div>
-      <p className="pricing-note">
-        Proposed plans only. Prices, feature inclusions, limits, and
-        subscription terms are still being finalised. No payment or subscription
-        is taken on this website.
-      </p>
-      <div className="mini-cta">
-        <h2>Not sure where your church fits?</h2>
-        <p>Tell us a little about your community. We’ll start there.</p>
-        <SecondaryButton href="/contact">Let’s talk it through</SecondaryButton>
-      </div>
-    </section>
   );
 }
 function Download() {
@@ -658,8 +611,7 @@ export default async function Page({
         <Churches />
       ) : slug === 'about' ? (
         <About />
-      ) : slug === 'pricing' ? (
-        <Pricing />
+
       ) : slug === 'faq' ? (
         <section className="wrap narrow faq-page">
           <FAQAccordion />

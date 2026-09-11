@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 const links = [
   ['Features', '/features'],
   ['Churches', '/for-churches'],
-  ['Pricing', '/pricing'],
   ['About', '/about'],
 ];
 export function Navbar() {

@@ -6,7 +6,6 @@ const routes = [
   'features',
   'for-churches',
   'about',
-  'pricing',
   'faq',
   'contact',
   'download',

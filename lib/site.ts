@@ -109,10 +109,6 @@ export const faqs = [
     a: 'The intended approach is to keep personal reflections separate from church-level reporting. Exact permissions, sharing controls, and data practices must be confirmed in the final Privacy Policy before launch.',
   },
   {
-    q: 'How much will Equipt cost?',
-    a: 'Starter, Church, and Enterprise are planned options. Prices and included limits have not been finalised. The Pricing page outlines the proposed plans without committing you to a subscription.',
-  },
-  {
     q: 'How can I ask for my data to be deleted?',
     a: 'Email hello@core25.com.au from the address associated with your account, with “Equipt data deletion request” as the subject. We will confirm any verification needed and the applicable deletion process.',
   },
@@ -138,12 +134,6 @@ export const pageInfo: Record<
     description:
       'Helping churches make disciples through intentional conversations.',
     eyebrow: 'Our heart behind Equipt',
-  },
-  pricing: {
-    title: 'A place to start. Room to grow.',
-    description:
-      'Simple plans for individuals, churches, and wider communities. Pricing is being finalised.',
-    eyebrow: 'Plans for your next step',
   },
   faq: {
     title: 'Good questions are a good start.',
@@ -210,7 +200,6 @@ export const footerGroups = [
       ['Home', '/'],
       ['Features', '/features'],
       ['For Churches', '/for-churches'],
-      ['Pricing', '/pricing'],
       ['About', '/about'],
       ['Download', '/download'],
     ],
