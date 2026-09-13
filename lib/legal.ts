@@ -5,7 +5,7 @@ export const legalIntroductions: Record<string, string> = {
   'terms-of-use':
     'These Terms of Use apply to your use of Equipt, a Christian discipleship application operated by CORE25 PTY LTD (ABN 81 700 737 604).\nBy using Equipt, you agree to these Terms.',
   'acceptable-use-policy':
-    "Equipt exists to support healthy, intentional Christian discipleship.\nYou may use Equipt for personal, ministry and church-related discipleship purposes.\nYou must not use Equipt to violate applicable law, harass, threaten or abuse another person, impersonate another person, exploit or endanger children or vulnerable people, record information about another person without appropriate authority, store material you do not have the right to store, introduce malicious software, bypass security controls, interfere with the normal operation of Equipt or attempt to reverse engineer the application except where permitted by law.\nYou remain responsible for the information you choose to record within Equipt and for using the application appropriately within your discipleship relationships.\nCORE25 PTY LTD reserves the right to modify or discontinue Equipt where reasonably necessary to protect the application, its users or Core25's legal rights.\nQuestions about acceptable use can be directed to support@equipt.church.",
+    "Equipt exists to support healthy, intentional Christian discipleship.\nYou may use Equipt for personal, ministry and church-related discipleship purposes.\nYou must not use Equipt to violate applicable law, harass, threaten or abuse another person, impersonate another person, exploit or endanger children or vulnerable people, record information about another person without appropriate authority, store material you do not have the right to store, introduce malicious software, bypass security controls, interfere with the normal operation of Equipt or attempt to reverse engineer the application except where permitted by law.\nYou remain responsible for the information you choose to record within Equipt and for using the application appropriately within your discipleship relationships.\nCORE25 PTY LTD reserves the right to modify or discontinue Equipt where reasonably necessary to protect the application, its users or Core25's legal rights.\nQuestions about acceptable use can be directed to hello@core25.com.au.",
   'terms-of-service':
     'These Terms of Use apply to your use of Equipt, a Christian discipleship application operated by CORE25 PTY LTD (ABN 81 700 737 604).\nBy using Equipt, you agree to these Terms.',
 };
@@ -57,7 +57,7 @@ export const legalSections: Record<string, string[][]> = {
     ],
     [
       'Contact',
-      'CORE25 PTY LTD\nABN 81 700 737 604\nQueensland, Australia\nPrivacy enquiries:\nprivacy@equipt.church',
+      'CORE25 PTY LTD\nABN 81 700 737 604\nQueensland, Australia\nPrivacy enquiries:\nhello@core25.com.au',
     ],
   ],
   'terms-of-use': [
@@ -115,7 +115,7 @@ export const legalSections: Record<string, string[][]> = {
     ],
     [
       'Contact',
-      'CORE25 PTY LTD\nABN 81 700 737 604\nQueensland, Australia\nsupport@equipt.church',
+      'CORE25 PTY LTD\nABN 81 700 737 604\nQueensland, Australia\nhello@core25.com.au',
     ],
   ],
   'terms-of-service': [
@@ -173,7 +173,7 @@ export const legalSections: Record<string, string[][]> = {
     ],
     [
       'Contact',
-      'CORE25 PTY LTD\nABN 81 700 737 604\nQueensland, Australia\nsupport@equipt.church',
+      'CORE25 PTY LTD\nABN 81 700 737 604\nQueensland, Australia\nhello@core25.com.au',
     ],
   ],
   'acceptable-use-policy': [],

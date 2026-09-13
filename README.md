@@ -42,7 +42,7 @@ CI runs the build and export checks on pushes and pull requests.
 
 The contact form prepares a `mailto:` email addressed to **hello@core25.com.au**. The user must open their email app and send it. A copy-message fallback is provided. This website does not claim to submit, store, or deliver messages on its own. No backend or external form service is configured.
 
-Support enquiries go to **support@equipt.church** and privacy enquiries to **privacy@equipt.church**.
+Support enquiries go to **hello@core25.com.au** and privacy enquiries to **hello@core25.com.au**.
 
 ## SEO
 

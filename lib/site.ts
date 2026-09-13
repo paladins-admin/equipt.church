@@ -3,8 +3,8 @@ export const site = {
   name: 'Equipt',
   url: 'https://www.equipt.church',
   email: 'hello@core25.com.au',
-  supportEmail: 'support@equipt.church',
-  privacyEmail: 'privacy@equipt.church',
+  supportEmail: 'hello@core25.com.au',
+  privacyEmail: 'hello@core25.com.au',
   appStoreUrl: '',
   testflightUrl: '',
   socialLinks: [] as { label: string; url: string }[],
@@ -112,7 +112,7 @@ export const faqs = [
   },
   {
     q: 'How can I delete my data?',
-    a: 'Use the available deletion or reset functions in the app. Deleting the app may also remove its local data, subject to your device and backups. Core25 cannot remotely delete or recover information stored only on your device. Contact privacy@equipt.church with privacy questions.',
+    a: 'Use the available deletion or reset functions in the app. Deleting the app may also remove its local data, subject to your device and backups. Core25 cannot remotely delete or recover information stored only on your device. Contact hello@core25.com.au with privacy questions.',
   },
 ];
 export const pageInfo: Record<

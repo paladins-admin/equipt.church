@@ -301,9 +301,9 @@ function PolicyText({ text }: { text: string }) {
       {text.split('\n').map((paragraph, index) => (
         <p key={index} style={{ marginBottom: '1rem' }}>
           {paragraph
-            .split(/((?:privacy|support)@equipt\.church)/g)
+            .split(/(hello@core25\.com\.au)/g)
             .map((part, i) =>
-              /^(privacy|support)@equipt\.church$/.test(part) ? (
+              part === site.email ? (
                 <a key={i} href={'mailto:' + part}>
                   {part}
                 </a>
@@ -470,11 +470,11 @@ function Community() {
         ],
         [
           'Raise a concern',
-          'Contact support@equipt.church to report a concern. Share enough context to help the team understand what happened without including unnecessary sensitive details.',
+          'Contact hello@core25.com.au to report a concern. Share enough context to help the team understand what happened without including unnecessary sensitive details.',
         ],
         [
           'How these guidelines are applied',
-          'Use Equipt responsibly and respectfully. Our Acceptable Use Policy sets out the conditions for using the application. Questions can be directed to support@equipt.church.',
+          'Use Equipt responsibly and respectfully. Our Acceptable Use Policy sets out the conditions for using the application. Questions can be directed to hello@core25.com.au.',
         ],
       ].map(([title, text]) => (
         <section key={title}>
