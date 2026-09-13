@@ -12,11 +12,9 @@ import {
   Apple,
   BookOpen,
   MessageCircle,
-  Bell,
-  LifeBuoy,
 } from 'lucide-react';
 import { pageInfo, pageMetadata, site } from '@/lib/site';
-import { legalSections } from '@/lib/legal';
+import { legalSections, legalIntroductions, legalUpdated } from '@/lib/legal';
 import {
   FeatureGrid,
   SectionHeading,
@@ -40,7 +38,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const info = pageInfo[slug];
   return info
-    ? pageMetadata(info.title + ' | Equipt', info.description, '/' + slug + '/')
+    ? pageMetadata(
+        info.title + ' | Equipt',
+        info.description,
+        '/' + (slug === 'terms-of-service' ? 'terms-of-use' : slug) + '/',
+      )
     : {};
 }
 function ContactDetails() {
@@ -141,12 +143,11 @@ function Churches() {
         <div>
           <h2>Trust belongs at the centre.</h2>
           <p>
-            Our intended approach keeps personal reflections separate from
-            church reporting. Specific permissions and data practices are being
-            finalised and will be documented before launch.
+            Your discipleship information stays on your device. Equipt does not
+            send your discipleship records or progress information to Core25.
           </p>
           <Link className="text-link" href="/privacy-policy">
-            Read the draft Privacy Policy <ArrowUpRight size={16} />
+            Read the Privacy Policy <ArrowUpRight size={16} />
           </Link>
         </div>
       </section>
@@ -294,32 +295,56 @@ function Download() {
     </section>
   );
 }
-function Legal({ slug }: { slug: string }) {
+function PolicyText({ text }: { text: string }) {
   return (
-    <article className="wrap legal-layout">
-      <aside>
-        <p>ON THIS PAGE</p>
-        <nav aria-label="Policy sections">
-          {legalSections[slug].map(([title], i) => (
-            <a key={title} href={'#section-' + i}>
-              {title}
-            </a>
-          ))}
-        </nav>
-      </aside>
+    <>
+      {text.split('\n').map((paragraph, index) => (
+        <p key={index} style={{ marginBottom: '1rem' }}>
+          {paragraph
+            .split(/((?:privacy|support)@equipt\.church)/g)
+            .map((part, i) =>
+              /^(privacy|support)@equipt\.church$/.test(part) ? (
+                <a key={i} href={'mailto:' + part}>
+                  {part}
+                </a>
+              ) : (
+                part
+              ),
+            )}
+        </p>
+      ))}
+    </>
+  );
+}
+function Legal({ slug }: { slug: string }) {
+  const sections = legalSections[slug];
+  return (
+    <article
+      className={sections.length ? 'wrap legal-layout' : 'wrap prose narrow'}
+    >
+      {sections.length > 0 && (
+        <aside>
+          <p>ON THIS PAGE</p>
+          <nav aria-label="Policy sections">
+            {sections.map(([title], i) => (
+              <a key={title} href={'#section-' + i}>
+                {title}
+              </a>
+            ))}
+          </nav>
+        </aside>
+      )}
       <div className="prose">
-        <div className="draft-notice">
-          <strong>Draft for review — not final legal terms</strong>
-          <p>
-            This page is a structure for the Equipt team and its legal adviser.
-            Bracketed details must be verified and completed before app
-            submission or public launch. Effective date: to be confirmed.
-          </p>
-        </div>
-        {legalSections[slug].map(([title, text], i) => (
+        <p style={{ marginBottom: '1.5rem' }}>
+          <strong>
+            Last updated: <time dateTime="2026-09-13">{legalUpdated}</time>
+          </strong>
+        </p>
+        <PolicyText text={legalIntroductions[slug]} />
+        {sections.map(([title, text], i) => (
           <section id={'section-' + i} key={title}>
             <h2>{title}</h2>
-            <p>{text}</p>
+            <PolicyText text={text} />
           </section>
         ))}
       </div>
@@ -329,74 +354,41 @@ function Legal({ slug }: { slug: string }) {
 function Deletion() {
   return (
     <article className="wrap prose narrow">
-      <div className="info-note">
-        <ShieldCheck />
-        <p>
-          You can request account and personal data deletion by email. You do
-          not need to share your password.
-        </p>
-      </div>
       <section>
-        <h2>Request deletion by email</h2>
-        <ol>
-          <li>
-            Email <a href={'mailto:' + site.email}>{site.email}</a>, preferably
-            from the address associated with your Equipt account.
-          </li>
-          <li>
-            Use the subject <strong>Equipt data deletion request</strong>.
-          </li>
-          <li>
-            Tell us that you want your account and personal information deleted.
-            Include the account email if it differs from your sending address.
-          </li>
-          <li>
-            We will confirm any identity verification needed and explain the
-            applicable deletion process.
-          </li>
-        </ol>
-        <a
-          className="button primary"
-          href={
-            'mailto:' +
-            site.email +
-            '?subject=Equipt%20data%20deletion%20request&body=Hello%20Equipt%2C%0A%0APlease%20delete%20my%20Equipt%20account%20and%20personal%20data.%0A%0AAccount%20email%3A%20'
+        <h2>Your Data</h2>
+        <p>
+          Equipt stores your discipleship information locally on your device.
+          Core25 does not maintain a remote copy of your discipleship records
+          and cannot recover information that has been deleted from your device.
+        </p>
+      </section>
+      <section>
+        <h2>Deleting Your Information</h2>
+        <PolicyText
+          text={
+            legalSections['privacy-policy'].find(
+              ([title]) => title === 'Deleting Your Information',
+            )![1]
           }
-        >
-          Prepare deletion request <ArrowUpRight size={17} />
-        </a>
+        />
       </section>
       <section>
-        <h2>Delete account instructions in the app</h2>
+        <h2>Data Retention</h2>
+        <PolicyText
+          text={
+            legalSections['privacy-policy'].find(
+              ([title]) => title === 'Data Retention',
+            )![1]
+          }
+        />
+      </section>
+      <section>
+        <h2>Privacy enquiries</h2>
         <p>
-          The in-app deletion path must be confirmed before launch. This page
-          does not assume a settings option that has not been verified. If you
-          cannot access the app, use the email process above.
+          <a href={'mailto:' + site.privacyEmail}>{site.privacyEmail}</a>
         </p>
-      </section>
-      <section>
-        <h2>Data retained</h2>
         <p>
-          [Review required: identify any records retained for legal, security,
-          billing, or backup reasons, why they are retained, who can access
-          them, and for how long. Confirm how deletion affects shared church
-          records.]
-        </p>
-      </section>
-      <section>
-        <h2>Processing time</h2>
-        <p>
-          [Review required: publish a verified response and deletion timeframe,
-          including backup expiry and any permitted exceptions.] The team will
-          confirm the applicable timing when it responds to your request.
-        </p>
-      </section>
-      <section>
-        <h2>Questions or concerns</h2>
-        <p>
-          Contact <a href={'mailto:' + site.email}>{site.email}</a>. You can
-          also read our <Link href="/privacy-policy">draft Privacy Policy</Link>
-          .
+          <Link href="/privacy-policy">Read the Privacy Policy</Link>.
         </p>
       </section>
     </article>
@@ -404,54 +396,52 @@ function Deletion() {
 }
 function Support() {
   return (
-    <>
-      <section className="wrap support-grid">
-        {[
-          [
-            BookOpen,
-            'Getting started',
-            'Check the Download page for current app availability. Once you have access, start with a single relationship and your first conversation.',
-          ],
-          [
-            Bell,
-            'Notification reminders',
-            'Check your iPhone notification permissions and Focus settings. Available reminder controls depend on the app version you are using.',
-          ],
-          [
-            LifeBuoy,
-            'Something not working?',
-            'Try reopening the app and checking your connection. Tell us your app version, iOS version, and the steps that led to the issue.',
-          ],
-        ].map(([Icon, title, text]) => {
-          const I = Icon as typeof BookOpen;
-          return (
-            <div className="feature-card" key={String(title)}>
-              <div className="feature-icon tone-0">
-                <I />
-              </div>
-              <h2>{String(title)}</h2>
-              <p>{String(text)}</p>
-            </div>
-          );
-        })}
+    <article className="wrap prose narrow">
+      <section>
+        <p>
+          Equipt is designed to make discipleship simple and practical. If
+          you're having trouble using the app, managing discipleship progress,
+          setting reminders or understanding a feature, contact us.
+        </p>
+        <p style={{ marginTop: '1rem' }}>
+          Support:
+          <br />
+          <a href={'mailto:' + site.supportEmail}>{site.supportEmail}</a>
+        </p>
       </section>
-      <section className="wrap contact-layout">
-        <div>
-          <SectionHeading
-            align="left"
-            eyebrow="WE’RE HERE TO HELP"
-            title="Tell us what’s happening."
-            description="Questions, bug reports, and feature requests are all welcome."
-          />
-          <ContactForm support />
-        </div>
-        <ContactDetails />
+      <section>
+        <h2>Privacy</h2>
+        <p>
+          Your discipleship information stays on your device. Equipt does not
+          send your discipleship records or progress information to Core25.
+        </p>
+        <p style={{ marginTop: '1rem' }}>
+          For privacy enquiries:
+          <br />
+          <a href={'mailto:' + site.privacyEmail}>{site.privacyEmail}</a>
+        </p>
       </section>
-      <section className="wrap section faq-section">
-        <SectionHeading eyebrow="A HELPFUL START" title="Common questions." />
-        <FAQAccordion />
+      <section>
+        <h2>Your Data</h2>
+        <PolicyText
+          text={
+            'Equipt stores your discipleship information locally on your device.\nCore25 does not maintain a remote copy of your discipleship records and cannot recover information that has been deleted from your device.'
+          }
+        />
       </section>
-    </>
+      <section>
+        <h2>About Equipt</h2>
+        <p>
+          Equipt is operated by:
+          <br />
+          CORE25 PTY LTD
+          <br />
+          ABN 81 700 737 604
+          <br />
+          Queensland, Australia
+        </p>
+      </section>
+    </article>
   );
 }
 function Community() {
@@ -480,11 +470,11 @@ function Community() {
         ],
         [
           'Raise a concern',
-          'Contact hello@core25.com.au to report a concern. Share enough context to help the team understand what happened without including unnecessary sensitive details.',
+          'Contact support@equipt.church to report a concern. Share enough context to help the team understand what happened without including unnecessary sensitive details.',
         ],
         [
           'How these guidelines are applied',
-          '[Before launch: confirm the moderation, safeguarding, escalation, notice, and appeal processes. Publish the verified process here.]',
+          'Use Equipt responsibly and respectfully. Our Acceptable Use Policy sets out the conditions for using the application. Questions can be directed to support@equipt.church.',
         ],
       ].map(([title, text]) => (
         <section key={title}>
@@ -611,7 +601,6 @@ export default async function Page({
         <Churches />
       ) : slug === 'about' ? (
         <About />
-
       ) : slug === 'faq' ? (
         <section className="wrap narrow faq-page">
           <FAQAccordion />

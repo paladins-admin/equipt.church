@@ -11,6 +11,8 @@ const routes = [
   'download',
   'privacy-policy',
   'terms-of-service',
+  'terms-of-use',
+  'acceptable-use-policy',
   'support',
   'data-deletion',
   'community-guidelines',

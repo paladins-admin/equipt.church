@@ -20,7 +20,7 @@ CI runs the build and export checks on pushes and pull requests.
 - `components/`: shared navigation, footer, cards, motion, FAQ, email form, carousel, and interface previews
 - `components/ui/`: installed shadcn primitives
 - `lib/site.ts`: canonical domain, contact email, App Store/TestFlight/social URLs, feature and FAQ copy
-- `lib/legal.ts`: draft legal sections
+- `lib/legal.ts`: published policy text supplied by CORE25 PTY LTD
 - `app/globals.css`: design tokens and responsive styles
 - `public/`: icons
 - `DNS-SETUP.md`: GitHub Pages setup and GoDaddy records
@@ -32,15 +32,17 @@ CI runs the build and export checks on pushes and pull requests.
 3. Set real App Store and TestFlight links in `lib/site.ts`; buttons remain disabled until supplied.
 4. Set social URLs when available. No invented social profiles are linked.
 5. Confirm pricing and plan inclusions; no payment flow is included.
-6. Complete bracketed legal placeholders and obtain appropriate review. Confirm the operator, jurisdiction, app data collection/sharing, providers, retention, children's privacy, subscription terms, and deletion timeframes. These drafts are not final app compliance documents.
-7. Confirm the app's in-app account-deletion flow and update the web instructions.
+6. Privacy Policy, Terms of Use, and Acceptable Use Policy contain the operator-supplied text dated 13 September 2026.
+7. Data-deletion guidance reflects local device storage; Core25 cannot remotely recover or delete that data.
 8. Replace planned release notes with actual shipped versions, dates, and changes.
 9. Add testimonials only with permission; no fabricated endorsements are displayed.
 10. Run browser/device/accessibility and Lighthouse checks before public launch. A 95+ Lighthouse score is a target, not a measured result.
 
 ## Contact forms
 
-Contact and support forms prepare a `mailto:` email addressed to **hello@core25.com.au**. The user must open their email app and send it. A copy-message fallback is provided. This website does not claim to submit, store, or deliver messages on its own. No backend or external form service is configured.
+The contact form prepares a `mailto:` email addressed to **hello@core25.com.au**. The user must open their email app and send it. A copy-message fallback is provided. This website does not claim to submit, store, or deliver messages on its own. No backend or external form service is configured.
+
+Support enquiries go to **support@equipt.church** and privacy enquiries to **privacy@equipt.church**.
 
 ## SEO
 

@@ -3,6 +3,8 @@ export const site = {
   name: 'Equipt',
   url: 'https://www.equipt.church',
   email: 'hello@core25.com.au',
+  supportEmail: 'support@equipt.church',
+  privacyEmail: 'privacy@equipt.church',
   appStoreUrl: '',
   testflightUrl: '',
   socialLinks: [] as { label: string; url: string }[],
@@ -102,15 +104,15 @@ export const faqs = [
   },
   {
     q: 'Does Equipt work offline?',
-    a: 'Offline support is planned for supported app content. The exact offline features and syncing behaviour will be confirmed with the release. Account changes and church reporting may need an internet connection.',
+    a: 'Your discipleship information is stored locally on your device. Local reminders are scheduled by your device and do not send discipleship information to an external notification service.',
   },
   {
     q: 'Who can see my notes and progress?',
-    a: 'The intended approach is to keep personal reflections separate from church-level reporting. Exact permissions, sharing controls, and data practices must be confirmed in the final Privacy Policy before launch.',
+    a: 'Information you enter into Equipt stays on your device. Equipt does not transmit your discipleship records, progress information or personal information to Core25 or third parties.',
   },
   {
-    q: 'How can I ask for my data to be deleted?',
-    a: 'Email hello@core25.com.au from the address associated with your account, with “Equipt data deletion request” as the subject. We will confirm any verification needed and the applicable deletion process.',
+    q: 'How can I delete my data?',
+    a: 'Use the available deletion or reset functions in the app. Deleting the app may also remove its local data, subject to your device and backups. Core25 cannot remotely delete or recover information stored only on your device. Contact privacy@equipt.church with privacy questions.',
   },
 ];
 export const pageInfo: Record<
@@ -159,21 +161,30 @@ export const pageInfo: Record<
     eyebrow: 'Your trust matters',
   },
   'terms-of-service': {
-    title: 'Terms of Service',
+    title: 'Terms of Use',
     description: 'The framework for using Equipt responsibly and respectfully.',
     eyebrow: 'Using Equipt',
   },
+  'terms-of-use': {
+    title: 'Terms of Use',
+    description: 'Terms for using Equipt responsibly and respectfully.',
+    eyebrow: 'Using Equipt',
+  },
+  'acceptable-use-policy': {
+    title: 'Acceptable Use Policy',
+    description: 'Healthy, intentional Christian discipleship.',
+    eyebrow: 'Using Equipt responsibly',
+  },
   support: {
-    title: 'A little help along the way.',
-    description:
-      'Need a hand with Equipt? Start here, or reach out to our team.',
+    title: 'Equipt Support',
+    description: "Need help with Equipt? We're here to help.",
     eyebrow: 'Equipt support',
   },
   'data-deletion': {
     title: 'Your data. Your choice.',
     description:
-      'How to request deletion of your Equipt account and personal information.',
-    eyebrow: 'Account and data deletion',
+      'How to remove Equipt information stored locally on your device.',
+    eyebrow: 'Data deletion',
   },
   'community-guidelines': {
     title: 'Make room for one another.',
@@ -217,7 +228,8 @@ export const footerGroups = [
     title: 'The details',
     links: [
       ['Privacy Policy', '/privacy-policy'],
-      ['Terms of Service', '/terms-of-service'],
+      ['Terms of Use', '/terms-of-use'],
+      ['Acceptable Use Policy', '/acceptable-use-policy'],
       ['Data Deletion', '/data-deletion'],
       ['Community Guidelines', '/community-guidelines'],
       ['Accessibility', '/accessibility'],
